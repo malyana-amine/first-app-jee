@@ -5,10 +5,10 @@
              version="3.0">
   <persistence-unit name="default">
     <properties>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/todoapp"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/first_app_jee"/>
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="jakarta.persistence.jdbc.user" value="your_postgres_username"/>
-      <property name="jakarta.persistence.jdbc.password" value="your_postgres_password"/>
+      <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+      <property name="jakarta.persistence.jdbc.password" value="12"/>
       <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
