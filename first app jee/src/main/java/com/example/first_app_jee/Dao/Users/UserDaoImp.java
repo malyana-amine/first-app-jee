@@ -6,13 +6,9 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class UserDaoImp implements UserDao {
-
-
     @Override
     public void add(Users user) {
-
-
-
+        System.out.println("yaes");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = emf.createEntityManager();
         System.out.println("no");
@@ -21,6 +17,7 @@ public class UserDaoImp implements UserDao {
         entityManager.persist(user);
         entityManager.getTransaction().commit();
         entityManager.close();
-    }
 
+
+    }
 }

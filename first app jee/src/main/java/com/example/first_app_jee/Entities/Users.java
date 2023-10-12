@@ -1,13 +1,14 @@
 package com.example.first_app_jee.Entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 
 @Entity
+@Table (name = "users")
 public class Users {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // If using an auto-generated ID
+    private Long id; // Assuming Long as the ID type
 
     public Users(String name) {
         this.name = name;
@@ -15,6 +16,10 @@ public class Users {
 
     @Column(name = "name")
     private String name;
+
+    public Users() {
+
+    }
 
     public String getName() {
         return name;
