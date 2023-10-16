@@ -6,7 +6,7 @@
   <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jee_app1.1"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/firstAppJee"/>
       <property name="jakarta.persistence.jdbc.user" value="postgres"/>
       <property name="jakarta.persistence.jdbc.password" value="12"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

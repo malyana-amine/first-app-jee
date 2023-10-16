@@ -16,6 +16,6 @@ public class Default extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().println("Hello from DefaultServlet!");
+        response.sendRedirect(request.getContextPath()+"/UserServlet");
     }
 }
