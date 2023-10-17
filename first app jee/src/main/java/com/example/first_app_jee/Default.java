@@ -16,6 +16,6 @@ public class Default extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect(request.getContextPath()+"/UserServlet");
+        response.sendRedirect(request.getContextPath()+"/loginServlet");
     }
 }

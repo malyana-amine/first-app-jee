@@ -20,9 +20,8 @@ public class UserServiceImp implements UserService{
     @Override
     public Users getUser(String email) {
 
-        userDao.getUserByEmail(email);
-//        return users;
-        return null;
+       return userDao.getUserByEmail(email);
+//
     }
 
 }
