@@ -4,4 +4,8 @@ import com.example.first_app_jee.Entities.Users;
 
 public interface UserService {
     public Users addUser(Users users);
+
+    public Users getUser(String email);
+
+
 }

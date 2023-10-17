@@ -1,9 +1,8 @@
 package com.example.first_app_jee.Servlets;
 
-import com.example.first_app_jee.Dao.Users.UserDao;
-import com.example.first_app_jee.Dao.Users.UserDaoImp;
+
 import com.example.first_app_jee.Entities.Users;
-import com.example.first_app_jee.HelloServlet;
+
 import com.example.first_app_jee.Services.Users.UserService;
 import com.example.first_app_jee.Services.Users.UserServiceImp;
 import jakarta.servlet.RequestDispatcher;
@@ -28,17 +27,6 @@ public class UserServlet extends HttpServlet {
     }
 
     @Override
- //   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        String name = request.getParameter("name");
-//        Users user=new Users();
-//       // user.setName(name);
-//        UserService userService = new UserServiceImp();
-//        userService.addUser(user);
-//        response.sendRedirect(request.getContextPath()+"/UserServlet");
-//        System.out.println(user);
-//
-//
-//    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
