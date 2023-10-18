@@ -25,6 +25,7 @@ public class Reservation {
     @OneToMany(mappedBy = "reservation")
     private List<Equipment> equipmentList;
 
+
     public Reservation(Date startDate, Date endDate, Users user) {
         this.startDate = startDate;
         this.endDate = endDate;
