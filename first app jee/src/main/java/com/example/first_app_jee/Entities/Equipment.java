@@ -1,44 +1,31 @@
 package com.example.first_app_jee.Entities;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Equipment")
 public class Equipment {
-
-    public Equipment(String name, String dateMantenance, Reservation reservation, EquipmentStatus status) {
+    public Equipment(String name, Date dateMaintenance, EquipmentStatus status) {
         this.name = name;
-        this.dateMantenance = dateMantenance;
-        this.reservation = reservation;
+        this.dateMaintenance = dateMaintenance;
         this.status = status;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name") // Corrected the column name
+
+    @Column(name = "name")
     private String name;
-    @Column(name = "dateMantenance") // Corrected the column name
-    private String dateMantenance;
 
-    @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
+    @Column(name = "dateMantenance")
+    private Date dateMaintenance;
 
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
-
-    @Column(name = "staus") // Corrected the column name
+    @Column(name = "status")
     private EquipmentStatus status;
 
-    public Equipment() {
 
-    }
 
     public String getName() {
         return name;
@@ -48,12 +35,12 @@ public class Equipment {
         this.name = name;
     }
 
-    public String getDateMantenance() {
-        return dateMantenance;
+    public Date getDateMaintenance() {
+        return dateMaintenance;
     }
 
-    public void setDateMantenance(String dateMantenance) {
-        this.dateMantenance = dateMantenance;
+    public void setDateMaintenance(Date dateMaintenance) {
+        this.dateMaintenance = dateMaintenance;
     }
 
     public EquipmentStatus getStatus() {
@@ -62,5 +49,9 @@ public class Equipment {
 
     public void setStatus(EquipmentStatus status) {
         this.status = status;
+    }
+
+    public Equipment() {
+
     }
 }

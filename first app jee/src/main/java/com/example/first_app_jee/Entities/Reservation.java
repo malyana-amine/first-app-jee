@@ -22,52 +22,9 @@ public class Reservation {
     @JoinColumn(name = "user_id") // This should match the name of the foreign key column in your database
     private Users user;
 
-    @OneToMany(mappedBy = "reservation")
-    private List<Equipment> equipmentList;
+    @ManyToOne
+    @JoinColumn(name = "equipment_id", referencedColumnName = "id") // Use referencedColumnName to specify the column in Equipment
+    private Equipment equipment;
 
-
-    public Reservation(Date startDate, Date endDate, Users user) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.user = user;
-    }
-
-    public Reservation() {
-
-    }
-
-    // Getter and setter methods for the fields
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public void setUser(Users user) {
-        this.user = user;
-    }
-
-
-    public List<Equipment> getEquipmentList() {
-        return equipmentList;
-    }
-
-    public void setEquipmentList(List<Equipment> equipmentList) {
-        this.equipmentList = equipmentList;
-    }
+    // Constructors, getters, setters, and other methods...
 }
