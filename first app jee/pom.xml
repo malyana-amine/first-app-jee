@@ -48,7 +48,14 @@
       <artifactId>hibernate-core</artifactId>
       <version>6.0.2.Final</version>
     </dependency>
-<!--    <dependency>-->
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!--    <dependency>-->
 <!--      <groupId>org.glassfish.jaxb</groupId>-->
 <!--      <artifactId>jaxb-runtime</artifactId>-->
 <!--      <version>3.0.2</version>-->

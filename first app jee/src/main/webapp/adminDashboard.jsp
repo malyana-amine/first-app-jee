@@ -1,4 +1,8 @@
+<%@ page import="com.example.first_app_jee.Entities.Equipment" %>
+
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -193,13 +197,30 @@
             </tr>
             </thead>
             <tbody class="text-gray-700">
+            <%
+              List<Equipment> equipments = (List<Equipment>) request.getAttribute("equipmentList");
+              for (Equipment equipment :equipments){
+                %>
+
+              <%= equipment.getName()%>
             <tr>
-              <td class="w-1/3 text-left py-3 px-4">Lian</td>
-              <td class="w-1/3 text-left py-3 px-4">Smith</td>
-              <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-              <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
+              <td class="w-1/3 text-left py-3 px-4"><%= equipment.getName()%></td>
+              <td class="w-1/3 text-left py-3 px-4"><%= equipment.getName()%></td>
+              <td class="text-left py-3 px-4"><a class="hover:text-blue-500"><%= equipment.getName()%></a></td>
+              <td class="text-left py-3 px-4"><a class="hover:text-blue-500"><%= equipment.getName()%></a></td>
             </tr>
+            <%}
+            %>
+<%--            <c:forEach items="${equipmentList}" var="equipment">--%>
+<%--              <tr>--%>
+<%--                <td class="w-1/3 text-left py-3 px-4">${equipment.name}</td>--%>
+<%--                <td class="w-1/3 text-left py-3 px-4">${equipment.dateMaintenance}</td>--%>
+<%--                <td class="text-left py-3 px-4"><a class="hover:text-blue-500">${equipment.name}</a></td>--%>
+<%--                <td class="text-left py-3 px-4"><a class="hover:text-blue-500">${equipment.name}</a></td>--%>
+<%--              </tr>--%>
+<%--            </c:forEach>--%>
             </tbody>
+
           </table>
         </div>
       </div>

@@ -4,6 +4,11 @@ import com.example.first_app_jee.Entities.Equipment;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
+
+import java.util.List;
 
 public class EquipmentDaoImp implements EquipmentDao {
 
@@ -21,5 +26,12 @@ public class EquipmentDaoImp implements EquipmentDao {
         entityManager.persist(equipment);
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+    @Override
+    public List<Equipment> getAllEquipment() {
+        EntityManager entityManager = emf.createEntityManager();
+        List<Equipment> equipmentList = entityManager.createQuery("SELECT e FROM Equipment e", Equipment.class).getResultList();
+        entityManager.close();
+        return equipmentList;
     }
 }
