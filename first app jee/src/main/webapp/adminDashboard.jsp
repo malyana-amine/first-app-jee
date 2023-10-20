@@ -191,9 +191,9 @@
             <thead class="bg-gray-800 text-white">
             <tr>
               <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-              <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Last name</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
+              <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Date de Maintenance</th>
+              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">status</th>
+              <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Edit</th>
             </tr>
             </thead>
             <tbody class="text-gray-700">
@@ -202,23 +202,25 @@
               for (Equipment equipment :equipments){
                 %>
 
-              <%= equipment.getName()%>
+<%--              <%= equipment.getId()%>--%>
             <tr>
               <td class="w-1/3 text-left py-3 px-4"><%= equipment.getName()%></td>
-              <td class="w-1/3 text-left py-3 px-4"><%= equipment.getName()%></td>
-              <td class="text-left py-3 px-4"><a class="hover:text-blue-500"><%= equipment.getName()%></a></td>
-              <td class="text-left py-3 px-4"><a class="hover:text-blue-500"><%= equipment.getName()%></a></td>
+              <td class="w-1/3 text-left py-3 px-4">
+                <% if (equipment.getDateMaintenance() == null) { %>
+                No Maintenance Date
+                <% } else { %>
+                <%= equipment.getDateMaintenance() %>
+                <% } %>
+              </td>
+              <td class="text-left py-3 px-4"><%= equipment.getStatus()%></td>
+              <td class="text-left py-3 px-4">
+                <a href="dashboardAdmin?action=delete&id=<%= equipment.getId() %>" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</a>
+                <a href="dashboardAdmin" type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">update</a>
+              </td>
             </tr>
             <%}
             %>
-<%--            <c:forEach items="${equipmentList}" var="equipment">--%>
-<%--              <tr>--%>
-<%--                <td class="w-1/3 text-left py-3 px-4">${equipment.name}</td>--%>
-<%--                <td class="w-1/3 text-left py-3 px-4">${equipment.dateMaintenance}</td>--%>
-<%--                <td class="text-left py-3 px-4"><a class="hover:text-blue-500">${equipment.name}</a></td>--%>
-<%--                <td class="text-left py-3 px-4"><a class="hover:text-blue-500">${equipment.name}</a></td>--%>
-<%--              </tr>--%>
-<%--            </c:forEach>--%>
+
             </tbody>
 
           </table>

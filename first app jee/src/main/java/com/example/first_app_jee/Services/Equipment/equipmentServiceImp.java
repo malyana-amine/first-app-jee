@@ -21,4 +21,9 @@ public class equipmentServiceImp implements equipmentService{
         System.out.println(equipment);
         return equipment;
     }
+    @Override
+    public void deleteEquipment(int equipmentId) {
+        equipmentDao.deleteEquipment(equipmentId);
+    }
+
 }

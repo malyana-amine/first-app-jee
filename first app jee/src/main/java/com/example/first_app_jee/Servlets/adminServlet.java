@@ -25,25 +25,20 @@ public class adminServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if (action != null && action.equals("delete")) {
+            // Delete the equipment
+            int equipmentId = Integer.parseInt(request.getParameter("id"));
+            equipmentService.deleteEquipment(equipmentId);
+        }
+
         List<Equipment> equipmentList = equipmentService.getAllEquipment();
         System.out.println(equipmentList);
         request.setAttribute("equipmentList", equipmentList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("adminDashboard.jsp");
         dispatcher.forward(request, response);
     }
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        List<Equipment> equipmentList = equipmentService.getAllEquipment();
-//
-//        // Log the equipmentList to check if it's populated.
-//        for (Equipment equipment : equipmentList) {
-//            System.out.println("Equipment: " + equipment.getName()); // Use an appropriate property of the Equipment class.
-//        }
-//
-//        request.setAttribute("equipmentList", equipmentList);
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("/adminDashboard.jsp");
-//        dispatcher.forward(request, response);
-//    }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

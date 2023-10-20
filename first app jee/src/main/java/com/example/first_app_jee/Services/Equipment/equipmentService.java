@@ -7,4 +7,6 @@ import java.util.List;
 public interface equipmentService {
     public void add(Equipment equipment);
     public List<Equipment> getAllEquipment();
+    void deleteEquipment(int equipmentId);
+
 }

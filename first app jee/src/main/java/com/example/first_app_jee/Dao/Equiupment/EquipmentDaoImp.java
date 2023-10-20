@@ -34,4 +34,17 @@ public class EquipmentDaoImp implements EquipmentDao {
         entityManager.close();
         return equipmentList;
     }
+    @Override
+    public void deleteEquipment(int equipmentId) {
+        EntityManager entityManager = emf.createEntityManager();
+        Equipment equipment = entityManager.find(Equipment.class, equipmentId);
+        if (equipment != null) {
+            entityManager.getTransaction().begin();
+            entityManager.remove(equipment);
+            entityManager.getTransaction().commit();
+        }
+        entityManager.close();
+    }
+
+
 }
