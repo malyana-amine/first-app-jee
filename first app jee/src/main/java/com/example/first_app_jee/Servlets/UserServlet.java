@@ -31,22 +31,20 @@ public class UserServlet extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
-        String plainPassword = request.getParameter("password"); // Get the plain text password
+        String Password = request.getParameter("password"); // Get the plain text password
         String phoneNumber = request.getParameter("phoneNumber");
 
-        // Generate a salt for the password
-        String salt = generateSalt();
 
-        // Hash the password with the salt
-        String hashedPassword = hashPassword(plainPassword, salt);
+
+
 
         Users user = new Users();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
-        user.setPassword(hashedPassword); // Store the hashed password
-        user.setSalt(salt); // Store the salt
+
         user.setPhone(phoneNumber);
+        user.setPassword(Password);
 
         UserService userService = new UserServiceImp();
         userService.addUser(user);
@@ -54,35 +52,5 @@ public class UserServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/UserServlet");
     }
 
-    // Method to generate a random salt
-    private String generateSalt() {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        return bytesToHex(salt);
-    }
-
-    // Method to hash the password with salt
-    private String hashPassword(String password, String salt) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(salt.getBytes());
-            byte[] hashedPasswordBytes = md.digest(password.getBytes());
-
-            return bytesToHex(hashedPasswordBytes);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    // Helper method to convert byte array to hexadecimal string
-    private String bytesToHex(byte[] bytes) {
-        StringBuilder result = new StringBuilder();
-        for (byte b : bytes) {
-            result.append(String.format("%02x", b));
-        }
-        return result.toString();
-    }
 
 }

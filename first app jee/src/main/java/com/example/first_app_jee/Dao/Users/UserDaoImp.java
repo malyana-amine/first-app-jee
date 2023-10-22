@@ -16,13 +16,14 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void add(Users user) {
+    public Users add(Users user) {
         EntityManager entityManager = emf.createEntityManager();
 
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
         entityManager.close();
+        return user;
     }
 
     @Override

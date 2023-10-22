@@ -7,7 +7,7 @@ import jakarta.persistence.criteria.Root;
 
 public interface UserDao {
 
-    public void add(Users user);
+    public Users add(Users user);
 
     public Users getUserByEmail(String email);
 

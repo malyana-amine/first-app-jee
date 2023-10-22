@@ -12,6 +12,9 @@ public class Role {
     @Column(name = "role_name") // Corrected the column name
     private String roleName;
 
+    public Role(int i, String emploee) {
+    }
+
     // Getter and setter methods for the fields
 
     public String getRoleName() {

@@ -7,6 +7,22 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 public class Users {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDateEmbauche() {
+        return DateEmbauche;
+    }
+
+    public void setDateEmbauche(Date dateEmbauche) {
+        DateEmbauche = dateEmbauche;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
