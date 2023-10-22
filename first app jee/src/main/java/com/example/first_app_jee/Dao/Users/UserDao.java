@@ -11,5 +11,7 @@ public interface UserDao {
 
     public Users getUserByEmail(String email);
 
+    public Users getUserById(Integer id);
+
 
 }

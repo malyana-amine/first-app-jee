@@ -1,6 +1,7 @@
 package com.example.first_app_jee.Dao.Equiupment;
 
 import com.example.first_app_jee.Entities.Equipment;
+import com.example.first_app_jee.Entities.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -34,6 +35,15 @@ public class EquipmentDaoImp implements EquipmentDao {
         entityManager.close();
         return equipmentList;
     }
+
+    @Override
+    public Equipment getEquipmentById(Integer id) {
+        EntityManager entityManager = emf.createEntityManager();
+        Equipment equipment= entityManager.find(Equipment.class,id);
+
+        return equipment;
+    }
+
     @Override
     public void deleteEquipment(int equipmentId) {
         EntityManager entityManager = emf.createEntityManager();

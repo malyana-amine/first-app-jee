@@ -6,10 +6,20 @@ import java.util.Date;
 @Entity
 @Table(name = "Equipment")
 public class Equipment {
-    public Equipment(String name, Date dateMaintenance, EquipmentStatus status) {
+
+    public Equipment(String name, Date dateMaintenance, EquipmentStatus status, Boolean isReserved) {
         this.name = name;
         this.dateMaintenance = dateMaintenance;
         this.status = status;
+        this.isReserved = isReserved;
+    }
+
+    public Boolean getReserved() {
+        return isReserved;
+    }
+
+    public void setReserved(Boolean reserved) {
+        isReserved = reserved;
     }
 
     public Long getId() {
@@ -32,6 +42,9 @@ public class Equipment {
 
     @Column(name = "status")
     private EquipmentStatus status;
+
+    @Column(name = "isReserved")
+    private Boolean isReserved;
 
 
 

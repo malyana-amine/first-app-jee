@@ -7,5 +7,7 @@ public interface UserService {
 
     public Users getUser(String email);
 
+    public Users getUserById(Integer id);
+
 
 }

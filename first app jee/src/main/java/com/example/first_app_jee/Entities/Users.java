@@ -51,13 +51,6 @@ public class Users {
         this.password = password;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
 
     @Column(name = "DateEmbauche")
     private Date DateEmbauche;
@@ -81,16 +74,14 @@ public class Users {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "salt")
-    private String salt;
 
-    public Users(String firstName, String lastName, String phone, String email, String password, String salt) {
+    public Users(String firstName, String lastName, String phone, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.password = password;
-        this.salt = salt;
+
     }
 
     public Users() {

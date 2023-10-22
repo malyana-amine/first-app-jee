@@ -6,7 +6,7 @@ import com.example.first_app_jee.Entities.Equipment;
 
 import java.util.List;
 
-public class equipmentServiceImp implements equipmentService{
+public class EquipmentServiceImp implements EquipmentService {
 
     EquipmentDao equipmentDao = new EquipmentDaoImp();
     @Override
@@ -21,6 +21,13 @@ public class equipmentServiceImp implements equipmentService{
         System.out.println(equipment);
         return equipment;
     }
+
+    @Override
+    public Equipment getEquipmentById(Integer id) {
+        EquipmentDao equipmentDao = new EquipmentDaoImp();
+        return equipmentDao.getEquipmentById(id);
+    }
+
     @Override
     public void deleteEquipment(int equipmentId) {
         equipmentDao.deleteEquipment(equipmentId);

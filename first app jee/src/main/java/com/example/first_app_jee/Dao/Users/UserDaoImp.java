@@ -45,4 +45,12 @@ public class UserDaoImp implements UserDao {
             entityManager.close();
         }
     }
+
+    @Override
+    public Users getUserById(Integer id) {
+        EntityManager entityManager = emf.createEntityManager();
+        Users users= entityManager.find(Users.class,id);
+
+        return users;
+    }
 }

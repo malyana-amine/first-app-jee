@@ -5,8 +5,8 @@ import com.example.first_app_jee.Entities.EquipmentStatus;
 import com.example.first_app_jee.Entities.Users;
 import com.example.first_app_jee.Services.Users.UserService;
 import com.example.first_app_jee.Services.Users.UserServiceImp;
-import com.example.first_app_jee.Services.Equipment.equipmentService;
-import com.example.first_app_jee.Services.Equipment.equipmentServiceImp;
+import com.example.first_app_jee.Services.Equipment.EquipmentService;
+import com.example.first_app_jee.Services.Equipment.EquipmentServiceImp;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,7 +21,7 @@ import java.util.List;
 
 @WebServlet(name = "dashboardAdmin", urlPatterns = {"/dashboardAdmin"} )
 public class adminServlet extends HttpServlet {
-    private equipmentService equipmentService = new equipmentServiceImp(); // You should implement EquipmentService and EquipmentServiceImpl
+    private EquipmentService equipmentService = new EquipmentServiceImp(); // You should implement EquipmentService and EquipmentServiceImpl
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,14 +45,15 @@ public class adminServlet extends HttpServlet {
         String name = request.getParameter("name");
         Date dateMantenance = null;
         EquipmentStatus status = EquipmentStatus.Disponible ;
+        Boolean isReserved = false;
 
 
         // Generate a salt for the password
 
 
-        Equipment equipment = new Equipment(name,dateMantenance,status);
+        Equipment equipment = new Equipment(name,dateMantenance,status,isReserved);
 
-        equipmentService equipmentService = new equipmentServiceImp();
+        EquipmentService equipmentService = new EquipmentServiceImp();
         equipmentService.add(equipment);
 
         Users user = new Users();

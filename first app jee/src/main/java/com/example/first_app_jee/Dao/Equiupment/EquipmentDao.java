@@ -7,5 +7,6 @@ import java.util.List;
 public interface EquipmentDao {
     public void add(Equipment equipment);
     List<Equipment> getAllEquipment();
+    Equipment getEquipmentById(Integer id);
     void deleteEquipment(int equipmentId);
 }
