@@ -44,6 +44,7 @@ public class loginServlet extends HttpServlet {
         UserService userService = new UserServiceImp();
         userService.getUser(email,password);
 
+
         if (userService.getUser(email,password)==true){
             Users user = userService.getUserByEmail(email);
             HttpSession httpSession = request.getSession();

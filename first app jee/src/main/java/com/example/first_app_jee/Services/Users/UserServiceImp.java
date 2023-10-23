@@ -19,7 +19,7 @@ public class UserServiceImp implements UserService{
         user.setPassword(passwordHasher.hash(user.getPassword()));
 
         // Set the role to "employee" with ID 2
-        user.setRole(new Role(2, "emploee"));
+//        user.setRole(new Role(2, "emploee"));
 
         userDao.add(user);
         return user;

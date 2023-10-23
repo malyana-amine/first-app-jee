@@ -15,6 +15,10 @@ public class Role {
     public Role(int i, String emploee) {
     }
 
+    public Role() {
+
+    }
+
     // Getter and setter methods for the fields
 
     public String getRoleName() {
