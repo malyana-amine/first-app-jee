@@ -1,5 +1,6 @@
 package com.example.first_app_jee.Dao.Users;
 
+import com.example.first_app_jee.Entities.Equipment;
 import com.example.first_app_jee.Entities.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -7,6 +8,8 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
+
+import java.util.List;
 
 public class UserDaoImp implements UserDao {
     private EntityManagerFactory emf;
@@ -52,6 +55,14 @@ public class UserDaoImp implements UserDao {
         EntityManager entityManager = emf.createEntityManager();
         Users users= entityManager.find(Users.class,id);
 
+        return users;
+    }
+
+    @Override
+    public List<Users> getAllUsers() {
+        EntityManager entityManager = emf.createEntityManager();
+        List<Users> users = entityManager.createQuery("SELECT u FROM Users u", Users.class).getResultList();
+        entityManager.close();
         return users;
     }
 }

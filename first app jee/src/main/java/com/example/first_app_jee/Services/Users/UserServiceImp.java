@@ -10,6 +10,8 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
+import java.util.List;
+
 public class UserServiceImp implements UserService{
     UserDao userDao = new UserDaoImp();
 
@@ -47,6 +49,11 @@ public class UserServiceImp implements UserService{
     public Users getUserByEmail(String email) {
         return userDao.getUserByEmail(email);
 
+    }
+
+    @Override
+    public List<Users> getAllUsers() {
+        return userDao.getAllUsers();
     }
 
 
