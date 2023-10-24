@@ -119,9 +119,21 @@
                     </div>
                     <input name="end_date" datepicker type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                 </div>
+                <div>
+                    <input type="text" name="description" >
+                </div>
+                <div>
+                    <%--@declare id="status"--%><label for="status">Status:</label>
+                    <select name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="TODO">To Do</option>
+                        <option value="DOING">Doing</option>
+                        <option value="DONE">Done</option>
+                    </select>
+                </div>
 
 
-                <input type="hidden" id="equipmentId" name="equipment_id">
+
+                <input type="hidden" id="userId" name="user_id">
 
 
 
@@ -152,31 +164,31 @@
                     </thead>
                     <tbody class="text-gray-700">
                     <%
-                        List<Users> equipments = (List<Users>) request.getAttribute("Users");
-                        for (Users equipment :equipments){
+                        List<Users> users = (List<Users>) request.getAttribute("Users");
+                        for (Users user :users){
                     %>
 
-                    <%--              <%= equipment.getId()%>--%>
+                    <%--              <%= user.getId()%>--%>
                     <tr>
-                        <td class="w-1/3 text-left py-3 px-4"><%= equipment.getId()%></td>
+                        <td class="w-1/3 text-left py-3 px-4"><%= user.getId()%></td>
                         <td class="w-1/3 text-left py-3 px-4">
-                            <% if (equipment.getId() == null) { %>
+                            <% if (user.getId() == null) { %>
                             No Maintenance Date
                             <% } else { %>
-                            <%= equipment.getEmail() %>
+                            <%= user.getEmail() %>
                             <% } %>
                         </td>
                         <td class="text-left py-3 px-4">
-                            <%=  equipment.getEmail() %>
+                            <%=  user.getEmail() %>
 
                         </td>
 
 
 
-                        <td class="text-left py-3 px-4"><%=  equipment.getEmail()%></td>
+                        <td class="text-left py-3 px-4"><%=  user.getEmail()%></td>
                         <td class="text-left py-3 px-4">
-                          <button onclick="setEquipmentId(<%= equipment.getId()%>)" id="<%= equipment.getId()%>" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                Réserver
+                          <button onclick="setUserId(<%= user.getId()%>)" id="<%= user.getId()%>" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                              assigner task
                             </button>
 
                         </td>
@@ -196,8 +208,8 @@
 </div>
 
 <script>
-    function setEquipmentId(id) {
-        document.getElementById('equipmentId').value = id;
+    function setUserId(id) {
+        document.getElementById('userId').value = id;
     }
 </script>
 

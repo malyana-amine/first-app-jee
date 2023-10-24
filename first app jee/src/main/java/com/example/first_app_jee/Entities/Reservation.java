@@ -35,6 +35,10 @@ public class Reservation {
         this.equipment = equipment;
     }
 
+    public Reservation() {
+
+    }
+
     public Long getId() {
         return id;
     }

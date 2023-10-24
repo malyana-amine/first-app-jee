@@ -10,6 +10,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserDaoImp implements UserDao {
     private EntityManagerFactory emf;
@@ -64,5 +65,22 @@ public class UserDaoImp implements UserDao {
         List<Users> users = entityManager.createQuery("SELECT u FROM Users u", Users.class).getResultList();
         entityManager.close();
         return users;
+//        EntityManager entityManager = emf.createEntityManager();
+//        List<Users> users = entityManager.createQuery("select u from Users u", Users.class).getResultList();
+////        entityManager.flush();
+//        entityManager.close();
+////        List<Users> userss = users.stream().filter(users1 -> users1.getId()<2).collect(Collectors.toList());
+//        List<Users> userss = users.stream().map(users1 -> {
+//            users1.setEmail(users1.getEmail().toLowerCase());
+//            return users1;
+//        }).collect(Collectors.toList());
+////        List<Users> userss = users.stream()
+////                .map(users1 -> {
+////                    users1.setEmail(users1.getEmail().toLowerCase());
+////                    return users1;
+////                })
+////                .collect(Collectors.toList());
+//        System.out.println(userss);
+//        return users;
     }
 }

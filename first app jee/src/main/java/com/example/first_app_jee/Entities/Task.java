@@ -1,6 +1,8 @@
 package com.example.first_app_jee.Entities;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,17 +19,18 @@ public class Task {
     private TachStatus status;
 
     @Column(name = "start_date")
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(name = "due_date")
-    private Date dueDate;
+    private LocalDate dueDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id") // This should match the name of the foreign key column in your database
     private Users user;
 
-    public Task(String description, Date startDate, Date dueDate, Users user) {
+    public Task(String description, TachStatus status, LocalDate startDate, LocalDate dueDate, Users user) {
         this.description = description;
+        this.status = status;
         this.startDate = startDate;
         this.dueDate = dueDate;
         this.user = user;
@@ -47,19 +50,19 @@ public class Task {
         this.description = description;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
