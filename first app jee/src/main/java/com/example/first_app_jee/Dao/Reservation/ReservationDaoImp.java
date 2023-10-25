@@ -1,9 +1,13 @@
 package com.example.first_app_jee.Dao.Reservation;
 
+import com.example.first_app_jee.Entities.Equipment;
 import com.example.first_app_jee.Entities.Reservation;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
 
 public class ReservationDaoImp implements ReservationDao{
 
@@ -21,6 +25,12 @@ public class ReservationDaoImp implements ReservationDao{
         entityManager.close();
 
         return reservation;
+    }
+    public List<Reservation> getAllReservations() {
+        EntityManager entityManager = emf.createEntityManager();
+        List<Reservation> reservations = entityManager.createQuery("SELECT e FROM Reservation e", Reservation.class).getResultList();
+        entityManager.close();
+        return reservations;
     }
 }
 
