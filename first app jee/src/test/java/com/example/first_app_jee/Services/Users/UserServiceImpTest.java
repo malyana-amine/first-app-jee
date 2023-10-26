@@ -38,8 +38,8 @@ public class UserServiceImpTest {
     @Test
     void testGetUser() {
         // Assuming you have a test user with known email and password in the database.
-        String email = "test@example.com";
-        String password = "testpassword";
+        String email = "kefyzevifu@mailinator.com";
+        String password = "Pa$$w0rd!";
         boolean userExists = userService.getUser(email, password);
         assertTrue(userExists);
         // You can add more assertions as needed.
@@ -48,7 +48,7 @@ public class UserServiceImpTest {
     @Test
     void testGetUserById() {
         // Assuming you have a test user with known ID in the database.
-        int userId = 1; // Replace with the actual user ID.
+        int userId = 4; // Replace with the actual user ID.
         Users user = userService.getUserById(userId);
         assertNotNull(user);
         assertEquals(userId, user.getId());
@@ -58,7 +58,7 @@ public class UserServiceImpTest {
     @Test
     void testGetUserByEmail() {
         // Assuming you have a test user with a known email in the database.
-        String email = "test@example.com";
+        String email = "xagojyhica@mailinator.com";
         Users user = userService.getUserByEmail(email);
         assertNotNull(user);
         assertEquals(email, user.getEmail());
